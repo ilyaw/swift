@@ -44,6 +44,7 @@ class TrunkCar : Basic, CustomStringConvertible  {
     
     override func actionEngine(_ actionEngine: Engine) {
         print(actionEngine.rawValue)
+        engine = actionEngine
     }
     
     var description: String {
@@ -87,6 +88,7 @@ class Plane : Basic, CustomStringConvertible {
     
     override func actionEngine(_ actionEngine: Engine) {
         print(actionEngine == Engine.on ? "Самолет готов к взлету" : "Двигатель заглушен" )
+        engine = actionEngine
     }
     
     var description: String {
@@ -104,6 +106,7 @@ class Train : Basic, CustomStringConvertible  {
     
     override func actionEngine(_ actionEngine: Engine) {
         print(actionEngine == Engine.on ? "Поезд готов к отправке" : "Двигатель заглушен" )
+        engine = actionEngine
     }
     
     var description: String {
@@ -112,17 +115,18 @@ class Train : Basic, CustomStringConvertible  {
 }
 
 
-let car = TrunkCar(trailerType: .tilt, modelName: "Kamaz", yearOfRelease: 2000, seatingCapacity: 2)
-print(car)
+let trunk = TrunkCar(trailerType: .tilt, modelName: "Kamaz", yearOfRelease: 2000, seatingCapacity: 2)
+print(trunk)
 
-
+print("===")
 let sportCar = SportCar(sportEngine: .atmospheric, modelName: "Aventodor", yearOfRelease: 2017, seatingCapacity: 2)
 sportCar.actionEngine(.on)
 print(sportCar)
-
+print("===")
 let plane = Plane(planeType: .passenger, modelName: "Ил-76", yearOfRelease: 2000, seatingCapacity: 70)
 plane.actionEngine(.on)
 print(plane)
-
-//let train = Train()
-
+print("===")
+let train = Train(numberOfWagons: 10, modelName: "Сапсан", yearOfRelease: 2014, seatingCapacity: 200)
+train.actionEngine(.on)
+print(train)
