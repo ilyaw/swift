@@ -80,3 +80,16 @@ print("Количество элементов > 10 и < 20 = \(count)")
 var sum = queue.aggregate() {$0 + $1}
 
 print("Подсчет всех чисел = \(sum!)")
+
+
+var strQueue = Queue<String>()
+
+strQueue.add("Ilya")
+strQueue.add("Rudenko")
+strQueue.add("Simple text")
+
+var resSumStr = strQueue.aggregate({(x: String, y: String) -> String in
+    return x + " " + y
+})
+
+print(resSumStr!)
